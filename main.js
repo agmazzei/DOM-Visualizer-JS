@@ -3,6 +3,9 @@ function generateDomTree(rootDOM){
     let contador = 1;
 
     function domToLists(currentNode,contador){
+        if(currentNode.nodeName == "#text" && currentNode.textContent.trim('').length === 0)
+            return '';
+        
         let actual = "<ul><li>";
         actual += `<h3 class=h3-${contador.toString()}>${currentNode.nodeName}</h3>`;
         contador++;  
